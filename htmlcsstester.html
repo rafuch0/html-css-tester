@@ -1,0 +1,69 @@
+<html><body onload="changeElements();setStyle();">
+
+<script type="text/javascript">
+var sheet = document.createElement('style');
+document.body.appendChild(sheet);
+
+function getText(what)
+{
+	var text = document.getElementById(what).value;
+	return text.replace(/\s+/g, ' ');
+}
+
+function changeElements()
+{
+	var body = document.getElementById('elements');
+	body.innerHTML = getText('elementsText');
+}
+
+function setStyle()
+{
+	sheet.innerHTML = getText('styleText');
+}
+
+function showStyle()
+{
+	alert(sheet.innerHTML);
+}
+
+function resetStyle()
+{
+	sheet.innerHTML = '';
+}
+</script>
+
+<div id="pageContainer">
+<form>
+<textarea id="elementsText" rows="24" cols="48">
+</textarea>
+<textarea id="styleText" rows="24" cols="48">
+body
+{
+line-height: 12px;
+font-size: 12px;
+}
+
+#elements
+{
+}
+
+#elementsContainer
+{
+background-color: #ff00ff;
+width: 400px;
+height: 200px;
+margin-left: auto;
+margin-right: auto;
+}
+</textarea>
+<br>
+<input type="button" value="ChangeElements" onClick="changeElements();">
+<input type="button" value="SetStyle" onClick="setStyle();" style="margin-left: 408px;">
+<input type="button" value="ShowStyle" onClick="showStyle();">
+<input type="button" value="ResetStyle" onClick="resetStyle();">
+</form>
+<div id="elementsContainer">
+<div id="elements"></div>
+</div>
+</div>
+</body></html>
